@@ -1,0 +1,43 @@
+
+<html>
+
+<title>NYTIMES AJAX CALLS</title>
+<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+<script type="text/javascript">
+    	
+//latitude/longitude example
+      
+        var nyTimes='http://api.nytimes.com/svc/semantic/v2/geocodes/query.json?latitude=34.052234&longitude=-118.243685&api-key=c8dc23a4e2f98d9891f7e3630911c4f3:4:74812644';
+        $.ajax({url: nyTimes, method: 'GET'})
+            .done(function(response) {
+               
+               console.log("hi")
+               console.log(response.results[0].country_name); //ati
+            });
+  
+
+  //country example 
+    var countryNews='http://api.nytimes.com/svc/semantic/v2/geocodes/query.json?country_name=France&api-key=c8dc23a4e2f98d9891f7e3630911c4f3:4:74812644';
+   $.ajax({url: countryNews, method: 'GET'})
+            .done(function(response) {
+               
+               console.log("hi")
+               console.log(response.results[0].country_name); 
+               console.log(response.results[1])
+            });
+
+        var allInfo='http://api.nytimes.com/svc/semantic/v2/concept/name/nytd_geo/Canada?fields=all&api-key=f74bd59ec545432b992225f6fccfa279:10:74812644';
+   $.ajax({url: allInfo, method: 'GET'})
+            .done(function(response) {
+               
+               console.log("semantic")
+               console.log(response.results[0]); //entire kansas object
+               console.log(response.results[0].article_list); //all the article lists for kansas
+            console.log(response.results[0].article_list.results[0].title) //the first article
+            console.log(response.results[0].article_list.results[0].url) //the first article
+            });
+  
+
+  //svc/semantic/v2/geocodes/query.json?country_name=France
+</script>
+</body>

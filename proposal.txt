@@ -1,0 +1,7 @@
+Group: Matt Martin, Lou Ritter, Steven M.
+
+Our project, yet to be named, is a travel assistance app. With one stop you can look up news, weather and attractions in any city.
+
+We plan to use the following APIs - Google Places, Flickr, Expedia, and perhaps Open Weather.
+
+Our layout will be made with BootStrap. We left on Monday with the goal of mastering and preparing all of the needed APIs so that we can focus on design and implementation on Monday.

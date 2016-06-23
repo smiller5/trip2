@@ -1,0 +1,88 @@
+html, body {
+	height: 100%;
+  	margin: 0;
+	font-sixe: 1em;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+.jumbotron {
+	height:350px;
+	margin-bottom: 0;
+	background-image: url(images/mapBG01.jpg);
+	background-size: cover;
+}
+.jumbotron h1{
+	color: #ffffff;
+	background-color: #000000;
+	opacity: 0.7;
+}
+@media screen and (min-width: 1000px) {
+	.jumbotron{
+		background-size: 100% 400px;
+	}
+}
+
+.nav-tabs.nav-justified>li>a {
+	font-size: 20px;map
+}
+
+a {
+	color: #666;
+	font-weight:500;
+}
+
+#map, #weatherDisplay, #newsDisplay, #buzzDisplay {
+	font-size: 24px;
+}
+
+#map{
+  height: 100%;
+  margin: 0;
+}
+
+.placePic {
+	width: 320px;
+	height: 200px;
+}
+
+.text-smaller {
+	font-size: .8em;
+}
+#sidebarButton{
+		z-index: 1;
+		position: fixed;
+		float: left;
+		border-radius: 35px;
+		margin-right: 10px;
+		border:none;
+		opacity: .5;
+		outline-style: none;
+
+}
+.sidebar.left{
+	position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 270px;
+    background: #000000;
+    z-index: 2;
+    opacity: .9;
+   };
+
+.sidebar.left #sideHead{
+	color: #FFFFFF;
+	opacity: none;
+}
+#sidebarButtonClose{
+		border-radius: 35px;
+		margin-right: 10px;
+		border:none;
+		opacity: .5;
+		outline-style: none;
+		float: right;
+		margin-top: 150px;
+}

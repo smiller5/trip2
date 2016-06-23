@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Trip2</title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
+	
+
+	<link rel="stylesheet" href="style.css">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<!-- sidebar plugin -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.3.2/jquery.sidebar.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+	<!-- HTML MOD - add Map Places API Javascript - invalid key!-->
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXu_yk8KUve9mHHk20jh3wAU7olb_maoo&libraries=places"></script>
+</head>
+<body>
+<div class="jumbotron">
+	<div class="container-fluid">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#"><i class="glyphicon glyphicon-map-marker"></i>&nbsp;<span id="headerLoc">Trip2</span></a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav">
+						<!-- <li class="active"><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li> -->
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<!-- <li><a href="#">Link</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</li> -->
+						<form class="navbar-form navbar-left" role="search">
+							<div class="form-group">
+								<input id="search" type="text" class="form-control" placeholder="Where2?" required>
+							</div>
+							<button type="submit" id="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</button>
+						</form>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div>
+		</nav>
+			<!-- <h1 id="cityName"></h1> -->
+	</div>
+</div>
+<!-- sidebar -->
+<div class="sidebar left" >
+<h3 id="sideHead">Recently Searched</h3>
+<!-- dynamically created buttons -->
+<div class="buttonDiv">
+	
+
+</div>
+<!-- sidebar close button -->
+<button type="button" class="btn btn-primary btn-circle" id="sidebarButtonClose"><i class="glyphicon glyphicon-arrow-left"></i></button>
+</div>
+
+<div class="container-fluid">
+
+	<div class="row">
+		<div id="map"></div>
+	</div>
+</div>
+
+<div class="container-fluid">
+<button type="button" class="btn btn-primary btn-circle" id="sidebarButton"><i class="glyphicon glyphicon-arrow-right"></i></button>
+	<div class="row">
+		<div class="col-md-12">
+			<div>
+			  	<ul class="nav nav-tabs nav-justified" role="tablist">
+				    <!-- <li role="presentation" class="active"><a href="#info" aria-controls="home" role="tab" data-toggle="tab">Info</a></li> -->
+				    <li role="presentation"><a href="#weather" aria-controls="weather" role="tab" data-toggle="tab">Weather</a></li>
+				    <li role="presentation"><a href="#news" aria-controls="news" role="tab" data-toggle="tab">News</a></li>
+				    <li role="presentation"><a href="#buzz" aria-controls="buzz" role="tab" data-toggle="tab">Attractions</a></li>
+			  	</ul>
+			  	<!-- Tab panes -->
+			</div>
+			<div class="tab-content">
+		    	<!-- <div role="tabpanel" class="tab-pane fade" id="info">
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h2 class="panelTitle">Map</h2>
+								</div>
+								<div class="panel-body" id="map">
+									<p class="alert alert-info">enter a location above!</p>
+								</div>
+							</div>
+						</div>
+					</div>
+		    	</div> -->
+			    <div role="tabpanel" class="tab-pane fade in active" id="weather">
+			    	<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h2 class="panelTitle">Weather</h2>
+								</div>
+								<div class="panel-body" id="weatherDisplay">
+									<p class="alert alert-info">enter a location above!</p>
+								</div>
+							</div>
+						</div>
+					</div>
+			    </div>
+			    <div role="tabpanel" class="tab-pane fade" id="news">
+			    	<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h2 class="panelTitle">News</h2>
+								</div>
+								<div class="panel-body" id="newsDisplay">
+									<p class="alert alert-info">enter a location above!</p>
+								</div>
+							</div>
+						</div>
+					</div>
+			    </div>
+			    <div role="tabpanel" class="tab-pane fade" id="buzz">
+			    	<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h2 class="panelTitle">Attractions</h2>
+								</div>
+								<div class="panel-body" id="buzzDisplay">
+									<p class="alert alert-info">enter a location above!</p>
+								</div>
+							</div>
+						</div>
+					</div>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<ul class="list-inline" id="recentQueries"></ul>
+			<ul class="list-inline" id="yourQueries"></ul>
+		</div>
+	</div>
+</div> -->
+<!-- <script src="recentQueries.js"></script> -->
+
+<script src="scripts.js"></script>
+
+</body>
+</html>
